@@ -1,0 +1,286 @@
+@font-face {
+    font-family: 'TiltNeon';
+    src: url('./font/TiltNeon-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+:root {
+    font-family: 'TiltNeon', cursive;
+    --nav: #075985;
+    --background: #e0f2fe;
+
+}
+
+html {
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    padding-left: 3%;
+    gap: 1vh;
+}
+
+.header-icon {
+    width: 6vh;
+    filter: invert(22%) sepia(81%) saturate(976%) hue-rotate(170deg) brightness(102%) contrast(97%);
+}
+
+main {
+    display: flex;
+    height: 90vh;
+    
+
+}
+
+.nav {
+    background-color: var(--nav);
+    padding: 2vh 0 2vh 0;
+    width: 20%;
+    height: 100%;
+   
+}
+
+.nav-main {
+    list-style-type: none;
+    padding-left: 15%;
+
+}
+
+
+
+.nav-title a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--background);
+}
+
+.nav-add {
+    margin-bottom: 3vh;
+    
+}
+
+.add-task {
+    display: flex;
+    align-items: center;
+    border: none;
+    color: var(--background);
+    font-family: inherit;
+    font-size: inherit;
+    background-color: var(--nav);
+    padding-left: 0;
+}
+
+
+.nav-project {
+    margin: 3vh 0 3vh 0;
+}
+
+
+.nav-icon {
+    width: 4vh;
+    filter: invert(99%) sepia(77%) saturate(7473%) hue-rotate(177deg) brightness(109%) contrast(99%);
+    
+}
+
+.content {
+    width: 80%;
+    height: 100%;
+    padding: 2vh 0 2vh 0;
+    background-color: var(--background);
+}
+
+.task-model {
+    display: flex;
+    width: 95%;
+    align-items: center;
+    border: 2px dotted blue;
+    padding: 1vh 2vh;
+   
+}
+
+.checkbox input {
+    width: 4vh;
+    height: 4vh;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 2px solid black;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+.checkbox input:checked {
+    appearance: auto;
+    clip-path: circle(50% at 50% 50%);
+    background-color: var(--nav);
+  }
+
+
+.task-text {
+    width: 80vh;
+    margin-left: 3vh;
+    
+}
+.task-title {
+    margin: 0;
+}
+
+.task-description {
+    margin: 0;
+}
+
+.task-date {
+    margin-left: auto;
+    width: 15vh;
+    
+    
+}
+
+.task-project {
+    margin-left: auto;
+    width: 20vh;
+    overflow-wrap: break-word;
+    
+}
+
+.task-icon {
+   margin-left: auto;
+   display: flex;
+
+}
+
+.task-img {
+    
+    width: 2.5vh;
+    filter: invert(22%) sepia(81%) saturate(976%) hue-rotate(170deg) brightness(102%) contrast(97%);
+    cursor: pointer;
+    
+    
+    
+    
+}
+
+.icon-edit {
+    margin: 0 1.5vh 0 4vh;
+}
+
+.add-popup {
+    display: none;
+    position: fixed;
+    left: 45%;
+    top: 30%;
+    border: 2px solid #075985;
+    background-color: var(--background);
+    padding: 2vh;
+}
+
+.add-form {
+    display: flex;
+    flex-direction: column;
+    padding: 2vh 4vh;
+}
+
+.add-form input[type="text"] {
+    border: none;
+    background-color: var(--background);
+    width: 90%;
+    border-bottom: 2px solid var(--nav);
+    outline: none;
+    padding: 1vh;
+    margin-bottom: 2vh;
+}
+
+
+.add-form input[type="date"] {
+    border: none;
+    background-color: var(--background);
+    outline: none;
+    padding: 1vh;
+    margin-bottom: 2vh;
+} 
+
+.add-form-project select {
+    border: none;
+    background-color: var(--background);
+    outline: none;
+    padding: 1vh;
+    margin-bottom: 2vh;
+}
+
+.add-form-priority {
+    display: flex;
+    align-items: center;
+}
+
+.add-form-priority input[type="radio"] {
+    position: relative;
+    opacity: 0;
+    top: 0;
+    left: 3.5vh;
+    height: 25px;
+    width: 25px; 
+    margin: 0;
+    cursor: pointer;
+}
+
+.add-form-priority label {
+   
+    border-radius: 1vh;
+    padding: 1vh;
+}
+.add-form-priority label[for="high"] {
+    color: red;
+    border: solid 1px red;
+}
+
+.add-form-priority input[id="high"]:hover {
+    color: blue;
+    border: solid 1px red;
+}
+
+
+.add-form-priority label[for="medium"] {
+    color: orange;
+    border: solid 1px orange;
+}
+
+.add-form-priority label[for="low"] {
+    color: green;
+    border: solid 1px green;
+}
+
+.add-form-btn {
+    display: flex;
+    gap: 2vh;
+    margin-top: 4vh;
+}
+
+.task-btn {
+    border: none;
+    background-color: var(--nav);
+    color: var(--background);
+    font-size: 2vh;
+    font-weight: 600;
+    padding: 1vh;
+    border-radius: 6px;
+    width: 100%;
+}
+    
+
+
+@media (max-width:700px) {
+    header {
+        padding-left: 5%;
+        }
+    .nav-main {
+        padding-left: 25%;
+        }
+    .nav-title {
+        padding-bottom: 20px;
+    }
+    .nav-title p {
+        display: none;
+    }
+}
