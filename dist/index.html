@@ -23,31 +23,54 @@
             </button>
           </li>
           <li class="nav-title">
-            <a href="#">
+            <a href="#" class="home-screen">
               <img src="../src/img/home.svg" alt="home icon" class="nav-icon">
               <p>Home</p>
             </a>
           </li>
           <li class="nav-title">
-            <a href="#">
+            <a href="#" class="today">
               <img src="../src/img/calendar-today.svg" alt="today icon" class="nav-icon">
               <p>Today</p>
             </a>
           </li>
           <li class="nav-title">
-            <a href="#">
+            <a href="#" class="futur">
               <img src="../src/img/calendar-month.svg" alt="upcoming icon" class="nav-icon">
               <p>Upcoming</p>
             </a>
           </li>
           <li class="nav-title nav-project">
-            <a href="#">
+            <a href="#" class="project-title">
               <img src="../src/img/book-edit-outline.svg" alt="Project icon" class="nav-icon">
               <p>My Projects</p>
             </a>
+            <ul class="nav-child">
+              <li class="nav-child-title">
+                <button class="add-project" type="button">
+                  <img src="../src/img/plus.svg" alt="add icon" class="nav-icon">
+                  <p>Add Project</p>
+                </button>
+              </li>
+              <li class="project-popup">
+                <form action="#" class="project-form" autocomplete="off">
+                  <div class="project-form-title">
+                    <input type="text" id="project-title" name="title" class="project-title-input" required/>
+                  </div>
+                  <div class="project-form-btn">
+                    <button type="submit" class="project-btn add-project-btn">Add</button>
+                    <button type="button" class="project-btn cancel-project-btn">Cancel</button>
+                  </div>
+                </form>
+              </li>
+              <li class="projects">
+                <ul class="project-list">
+                </ul>
+              </li>
+            </ul>
           </li>
           <li class="nav-title nav-notes">
-            <a href="#">
+            <a href="#" class="notes">
               <img src="../src/img/note-multiple-outline.svg" alt="notes icon" class="nav-icon">
               <p>Notes</p>
             </a>
@@ -55,39 +78,9 @@
         </ul>
       </div>
       <div class="content">
-        <div class="task-model">
-          <div class="checkbox">
-            <input type="checkbox" name="isChecked" value="checked" class="task-checkbox" />
-          </div>
-          <div class="task-text">
-            <h4 class="task-title">Respond email</h4>
-            <p class="task-description"> send final answer to M. Smith</p>
-          </div>
-          <div class="task-date">10/04/2024</div>
-          <div class="task-project">#Workfjfjhfjhjhgjhg</div>
-          <div class="task-icon">
-            <img src="../src/img/pencil.svg" alt="edit icon" class="task-img icon-edit">
-            <img src="../src/img/delete.svg" alt="delete icon" class="task-img">
-          </div>
-        </div>
-        <div class="task-model">
-          <div class="checkbox">
-            <input type="checkbox" id="checked-task" name="checked" checked />
-            <label for="checked-task"></label>
-          </div>
-          <div class="task-text">
-            <h4 class="task-title">Respond email</h4>
-            <p class="task-description"> send fnswer to M. Smith</p>
-          </div>
-          <div class="task-date">10/04/2024</div>
-          <div class="task-project">#Workfjhg</div>
-          <div class="task-icon">
-            <img src="../src/img/pencil.svg" alt="edit icon" class="task-img icon-edit">
-            <img src="../src/img/delete.svg" alt="delete icon" class="task-img">
-          </div>
-        </div>
+        
         <div class="add-popup">
-          <form action="#" class="add-form">
+          <form action="#" class="add-form" autocomplete="off">
             <div class="add-form-title">
               <label for="add-title">Title:</label>
               <input type="text" id="add-title" name="title" class="form-title" required/>
@@ -103,19 +96,16 @@
             <div class="add-form-project">
               <label for="add-project">Project Name:</label>
               <select id="add-project" name="project">
-                <option value="none">None</option>
-                <option value="1">1</option>
+                <!-- <option value="none">None</option> -->
               </select> 
             </div>
             <div class="add-form-priority">
               <legend>Priority:</legend>
-              <input type="radio" id="high" name="priority" value="high" />
+              <input type="radio" id="high" name="priority" value="high" class="priority-input"/>
               <label for="high">High</label>
-          
-              <input type="radio" id="medium" name="priority" value="medium" />
+              <input type="radio" id="medium" name="priority" value="medium" class="priority-input"/>
               <label for="medium">Medium</label>
-          
-              <input type="radio" id="low" name="priority" value="low" />
+              <input type="radio" id="low" name="priority" value="low" class="priority-input"/>
               <label for="low">Low</label>
             </div>
             <div class="add-form-btn">
@@ -123,6 +113,21 @@
               <button type="button" class="task-btn cancel-btn">Cancel</button>
             </div>
           </form>
+        </div>
+        <!-- <div class="project-popup">
+          <form action="#" class="project-form" autocomplete="off">
+            <div class="project-form-title">
+              <label for="project-title">Title:</label>
+              <input type="text" id="project-title" name="title" class="project-form-title" required/>
+            </div>
+            <div class="project-form-btn">
+              <button type="submit" class="project-btn addp-project-btn">Add</button>
+              <button type="button" class="project-btn cancel-project-btn">Cancel</button>
+            </div>
+          </form>
+        </div> -->
+        <div class="task-content">
+
         </div>
 
       </div>

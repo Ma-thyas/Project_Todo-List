@@ -8,6 +8,7 @@
     font-family: 'TiltNeon', cursive;
     --nav: #075985;
     --background: #e0f2fe;
+    --notes: #FEECE0;
 
 }
 
@@ -38,6 +39,7 @@ main {
     padding: 2vh 0 2vh 0;
     width: 20%;
     height: 100%;
+    font-size: 3vh;
    
 }
 
@@ -48,16 +50,17 @@ main {
 }
 
 
-
 .nav-title a {
     display: flex;
     align-items: center;
     text-decoration: none;
     color: var(--background);
+    gap: 1vh;
 }
 
 .nav-add {
     margin-bottom: 3vh;
+    
     
 }
 
@@ -65,6 +68,7 @@ main {
     display: flex;
     align-items: center;
     border: none;
+    cursor: pointer;
     color: var(--background);
     font-family: inherit;
     font-size: inherit;
@@ -77,12 +81,109 @@ main {
     margin: 3vh 0 3vh 0;
 }
 
+.project-title {
+    align-items: center;
+}
+.project-title p {
+    margin: 0;
+}
+
 
 .nav-icon {
     width: 4vh;
     filter: invert(99%) sepia(77%) saturate(7473%) hue-rotate(177deg) brightness(109%) contrast(99%);
     
 }
+
+.nav-child {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 2.5vh;
+
+}
+
+.nav-child-title {
+    margin-left: 10%;
+    
+}
+
+.add-project {
+    display: flex;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    color: var(--background);
+    font-family: inherit;
+    font-size: inherit;
+    background-color: var(--nav);
+    padding-left: 0;
+}
+
+.project-popup {
+    display: none;
+    border: 1px solid var(--background);
+    height: auto;
+    /* background-color: var(--background); */
+    padding: 2vh;
+    margin-right: 10%;
+}
+
+.project-form input[type="text"] {
+    border: none;
+    background-color: var(--nav);
+    font-size: 2.5vh;
+    color: var(--background);
+    width: 90%;
+    border-bottom: 2px solid var(--background);
+    outline: none;
+    padding: 1vh;
+    margin-bottom: 2vh;
+}
+
+.project-form-btn  {
+    display: flex;
+    gap: 2vh;
+    margin-top: 1vh;
+}
+
+.project-btn {
+    border: none;
+    background-color: var(--background);
+    color: var(--nav);
+    font-size: 2vh;
+    font-weight: 600;
+    padding: 0.5vh;
+    border-radius: 6px;
+    width: 80%;
+}
+
+
+.projects ul {
+    list-style-type: none;
+    padding-left: 20%;
+    color: var(--background);
+
+}
+
+.project {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10%;
+}
+
+.project-name {
+    width: 80%;
+    margin: 4% 0;
+    cursor: pointer;
+}
+.delete-project {
+    width: 3vh;
+    filter: invert(99%) sepia(77%) saturate(7473%) hue-rotate(177deg) brightness(109%) contrast(99%);
+}
+
+
 
 .content {
     width: 80%;
@@ -95,7 +196,8 @@ main {
     display: flex;
     width: 95%;
     align-items: center;
-    border: 2px dotted blue;
+    margin-left: 3vh;
+    border-left: 5px solid blue;
     padding: 1vh 2vh;
    
 }
@@ -148,17 +250,15 @@ main {
 .task-icon {
    margin-left: auto;
    display: flex;
+   gap: 1vh;
 
 }
 
 .task-img {
     
-    width: 2.5vh;
+    width: 3vh;
     filter: invert(22%) sepia(81%) saturate(976%) hue-rotate(170deg) brightness(102%) contrast(97%);
     cursor: pointer;
-    
-    
-    
     
 }
 
@@ -226,29 +326,42 @@ main {
 }
 
 .add-form-priority label {
-   
     border-radius: 1vh;
     padding: 1vh;
 }
-.add-form-priority label[for="high"] {
+
+.add-form-priority input[type="radio"] + label[for="high"]  {
     color: red;
     border: solid 1px red;
 }
 
-.add-form-priority input[id="high"]:hover {
-    color: blue;
-    border: solid 1px red;
+.add-form-priority input[type="radio"]:checked + label[for="high"] {
+    color: white;
+    border: solid 1px white;
+    background-color: red;
 }
 
 
-.add-form-priority label[for="medium"] {
+.add-form-priority input[type="radio"] + label[for="medium"] {
     color: orange;
     border: solid 1px orange;
 }
 
-.add-form-priority label[for="low"] {
+.add-form-priority input[type="radio"]:checked + label[for="medium"] {
+    color: white;
+    border: solid 1px white;
+    background-color: orange;
+}
+
+.add-form-priority input[type="radio"] + label[for="low"] {
     color: green;
     border: solid 1px green;
+}
+
+.add-form-priority input[type="radio"]:checked + label[for="low"] {
+    color: white;
+    border: solid 1px white;
+    background-color: green;
 }
 
 .add-form-btn {
@@ -267,6 +380,22 @@ main {
     border-radius: 6px;
     width: 100%;
 }
+
+.grid {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5vh;
+    width: 99.7%;
+    
+}
+
+.grid-element {
+    background-color: white;
+    height: 20vh;
+    margin: 0 4vh;
+    
+}
+
     
 
 
