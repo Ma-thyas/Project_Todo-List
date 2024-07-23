@@ -1,4 +1,6 @@
 import { myTasks as taskList} from './addTask';
+import { taskToStorage } from './storage';
+
 
 
 const taskDone = (e) => {
@@ -12,8 +14,11 @@ const taskDone = (e) => {
         let getTask = document.getElementById(getAtt);
         getTask.style.textDecoration = 'line-through';
     }
-    
+
+    taskToStorage();   
 }
+
+
 
 
 export default taskDone

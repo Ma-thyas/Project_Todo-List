@@ -1,6 +1,8 @@
 import endProject from './img/close.svg';
 import deleteProject from './deleteProject';
 import filterTaskByProject from './filterByProject';
+import { projectToStorage, storageToProject } from './storage';
+
 
 const projectForm = document.querySelector('.project-popup');
 const projectFrom = document.querySelector('.project-form');
@@ -37,13 +39,14 @@ let myProjects = [];
 const addProjectToList = () => {
     let newProject = new Project (projectTitle.value);
     myProjects.push(newProject);
+    projectToStorage();
 }
 
 // create new project in nav
 const addProjectToNav = (project) => {
     const newProject = document.createElement('li');
     newProject.classList.add('project')
-    newProject.setAttribute('id', myProjects.indexOf(project));
+    newProject.setAttribute('id', `p${myProjects.indexOf(project)}`);
 
     const projectName = document.createElement('p');
     projectName.classList.add('project-name')
@@ -67,7 +70,29 @@ const addProjectToNav = (project) => {
 const renderProject = () => {
     projectList.innerHTML = "";
     options.innerHTML = "";
+    // addNoneOption();
+
+    // if (myProjects.length == 0) {
+    //     addTestProject();
+    // }
+    
+    for (let i = 0; i < myProjects.length; i++) {
+        addProjectToNav(myProjects[i]);
+        addProjectToForm(myProjects[i]);
+    }
+};
+
+// show projects in nav
+const renderProjectAtStart = () => {
+    projectList.innerHTML = "";
+    options.innerHTML = "";
     addNoneOption();
+    storageToProject();
+
+    if (myProjects.length == 0) {
+        addTestProject();
+    }
+    
     for (let i = 0; i < myProjects.length; i++) {
         addProjectToNav(myProjects[i]);
         addProjectToForm(myProjects[i]);
@@ -97,15 +122,19 @@ const addNoneOption = () => {
 const addProject = (e) => {
     e.preventDefault();
     addProjectToList();
+    projectToStorage();
     renderProject();
     closeProjectForm();
 }
 
-let testProject = new Project("Work");
-myProjects.push(testProject);
+const addTestProject = () => {
+    let testProject = new Project("Work");
+    myProjects.push(testProject);
+}
+
 
 projectFrom.addEventListener('submit', addProject);
 
 
 
-export {showProjectForm, closeProjectForm, myProjects, renderProject}
+export {showProjectForm, closeProjectForm, myProjects, renderProject, renderProjectAtStart, Project}

@@ -1,5 +1,8 @@
 import { Task } from './task';
 import { render } from './printTask';
+import { showAddBtn } from './editTask';
+import { taskToStorage } from './storage';
+
 
 const addTaskForm = document.querySelector('.add-popup');
 const addForm = document.querySelector('.add-form');
@@ -12,10 +15,11 @@ const priorityHigh = document.querySelector('#high');
 const priorityMedium = document.querySelector('#medium');
 const priorityLow = document.querySelector('#low');
 
-const deleteBtn = document.querySelector('.task-img');
 
 //open add form
 const openTaskForm = () => {
+    render();
+    showAddBtn();
     deleteFormAnswer();
     addTaskForm.style.display = "block";
 }
@@ -48,6 +52,7 @@ const priorityLevel = () => {
 const addTaskToList = () => {
     let newTask = new Task (formTitle.value, formDescription.value, formDueDate.value, formProject.value, priorityLevel(), false);
     myTasks.push(newTask);
+    taskToStorage();
     console.log(myTasks);
 }
 
@@ -60,10 +65,14 @@ const addNewTask = (e) => {
 }
 
 let myTasks = [];
+let testTask = new Task("Respond email","send final answer to M. Smith",'2024-09-20','Work','high',false);
 
-let testTask = new Task("Respond email","send final answer to M. Smith",'2024-05-20','Work','high',false);
-myTasks.push(testTask);
+const addTestTask = () => {
+    myTasks.push(testTask);
+}
+// let testTask = new Task("Respond email","send final answer to M. Smith",'2024-09-20','Work','high',false);
+// myTasks.push(testTask);
 
 addForm.addEventListener('submit', addNewTask);
 
-export {openTaskForm, closeTaskForm, myTasks}
+export {openTaskForm, closeTaskForm, myTasks, addTestTask}

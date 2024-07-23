@@ -1,16 +1,30 @@
-import { myTasks as taskList } from './addTask';
+import { myTasks as taskList, addTestTask } from './addTask';
 import editIcon from './img/pencil.svg';
 import deleteIcon from './img/delete.svg';
 import deleteTask from './deleteTask';
-import editTask from './editTask';
+import { openEditForm } from './editTask';
 import taskDone from './checkTask';
 import { format, parseISO } from "date-fns";
+import { storageToTask } from './storage';
 
 
 const taskContent = document.querySelector('.task-content');
 
 const render = () => {
     taskContent.innerHTML = "";
+    for (let i = 0; i < taskList.length; i++) {
+        createNewEntry(taskList[i]);
+    }
+};
+
+const renderAtStart = () => {
+    taskContent.innerHTML = "";
+    storageToTask();
+
+    if (taskList.length == 0) {
+        addTestTask()    
+    }
+    
     for (let i = 0; i < taskList.length; i++) {
         createNewEntry(taskList[i]);
     }
@@ -37,7 +51,7 @@ const createNewEntry = (task) => {
     checkBoxInput.setAttribute('type','checkbox');
     checkBoxInput.setAttribute('name','isChecked');
     checkBoxInput.classList.add('completed-task');
-    checkBoxInput.addEventListener('change', taskDone)
+    checkBoxInput.addEventListener('click', taskDone)
 
     if (task.checkStatus == true) {
         checkBoxInput.checked = true;
@@ -95,7 +109,7 @@ const createNewEntry = (task) => {
      taskEdit.src = editIcon;
      taskEdit.classList.add('task-img', 'icon-edit');
      taskEdit.setAttribute('alt','edit icon');
-     taskEdit.addEventListener('click', editTask);
+     taskEdit.addEventListener('click', openEditForm);
 
      //delete btn
      const taskDelete = new Image();
@@ -131,4 +145,4 @@ const formatProjectForTask = (project) => {
 }
 
 
-export {formatDateForTask, render, renderSpecific}
+export {formatDateForTask, render, renderSpecific, renderAtStart}
